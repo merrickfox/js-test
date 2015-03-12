@@ -1,0 +1,60 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Page 1</title>
+  <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+  <style>
+    #mocha h2,
+    #mocha .test.pass::before,
+    #mocha .test.fail::before {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="mocha"></div>
+  <div style="margin: 20px 50px">
+    <a href="page2.html">Next page</a>
+  </div>
+  <script src="node_modules/lodash/index.js"></script>
+  <script src="node_modules/should/should.js"></script>
+  <script src="node_modules/mocha/mocha.js"></script>
+  <script>mocha.setup('bdd');</script>
+
+  <script src="index.js"></script>
+
+  <script>
+
+    describe('Step 1', function() {
+
+      it('add(2, 3) => 5', function() {
+        add(2, 3).should.be.exactly(5).and.be.a.Number;
+      });
+
+      it('add(4, 6) => 10', function() {
+        add(4, 6).should.be.exactly(10).and.be.a.Number;
+      });
+
+    });
+
+    describe('Step 2', function() {
+
+      it('add(2, 3, 5) => 10', function() {
+        add(2, 3, 5).should.be.exactly(10).and.be.a.Number;
+      });
+
+      it('add(4, 6, 3, 2) => 15', function() {
+        add(4, 6, 3, 2).should.be.exactly(15).and.be.a.Number;
+      });
+
+    });
+
+  </script>
+
+  <script>
+    mocha.run();
+  </script>
+
+  <script src="//localhost:35729/livereload.js"></script>
+</body>
+</html>

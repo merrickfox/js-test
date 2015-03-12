@@ -1,0 +1,84 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Page 2</title>
+  <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+  <style>
+    #mocha h2,
+    #mocha .test.pass::before,
+    #mocha .test.fail::before {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="mocha"></div>
+  <script src="node_modules/lodash/index.js"></script>
+  <script src="node_modules/should/should.js"></script>
+  <script src="node_modules/mocha/mocha.js"></script>
+  <script>mocha.setup('bdd');</script>
+
+  <script src="index.js"></script>
+
+  <script>
+
+    describe('Step 3', function() {
+
+      it('add(2, 3, 5).value() => 10', function() {
+        add(2, 3, 5).value()
+          .should.be.exactly(10).and.be.a.Number;
+      });
+
+    });
+
+    describe('Step 4', function() {
+
+      it('add(2, 3, 5).add(5).value() => 15', function() {
+        add(2, 3, 5).add(5).value()
+          .should.be.exactly(15).and.be.a.Number;
+      });
+
+      it('add(2, 3, 5).add(5).add(3, 2).value() => 20', function() {
+        add(2, 3, 5).add(5).add(3, 2).value()
+          .should.be.exactly(20).and.be.a.Number;
+      });
+
+    });
+
+    describe('Step 5', function() {
+
+      it('add(2, 3, 5)(5).value() => 15', function() {
+        add(2, 3, 5)(5).value()
+          .should.be.exactly(15).and.be.a.Number;
+      });
+
+      it('add(2, 3, 5)(5)(3, 2).value() => 20', function() {
+        add(2, 3, 5)(5)(3, 2).value()
+          .should.be.exactly(20).and.be.a.Number;
+      });
+
+    });
+
+    describe('Step 6 - Bonus Round', function() {
+
+      it('add(2, 3, 5)(5) + 5 => 20', function() {
+        (add(2, 3, 5)(5) + 5)
+          .should.be.exactly(20).and.be.a.Number;
+      });
+
+      it('add(2, 3, 5)(5)(3, 2) + 5 => 25', function() {
+        (add(2, 3, 5)(5)(3, 2) + 5)
+          .should.be.exactly(25).and.be.a.Number;
+      });
+
+    });
+
+  </script>
+
+  <script>
+    mocha.run();
+  </script>
+
+  <script src="//localhost:35729/livereload.js"></script>
+</body>
+</html>
